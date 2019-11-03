@@ -5,8 +5,13 @@ Version: 0.1.0
 Author: Marlena Bannick
 Maintainer: Marlena Bannick <mnorwood@uw.edu>
 Description: Uses statistical deconvolution methods to parse apart survival functions.
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Imports:
+    MASS,
+    distrEx,
+    parallel
 Suggests: 
     testthat
+RoxygenNote: 6.1.1
