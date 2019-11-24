@@ -1,4 +1,4 @@
-[![Travis build status](https://travis-ci.org/mbannick/survDeconvolution.svg?branch=master)](https://travis-ci.org/mbannick/survDeconvolution)
+[![Travis build status](https://travis-ci.com/mbannick/survDeconvolution.svg?branch=master)](https://travis-ci.com/mbannick/survDeconvolution)
 
 # survDeconvolution
 ## Overview
