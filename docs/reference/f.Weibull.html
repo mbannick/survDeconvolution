@@ -6,10 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Marginal survival function for exponential
-(possibly conditionally exponential)
-(possibly conditionally exponential)
-random variable. — S.Y.Exponential • survDeconvolution</title>
+<title>Marginal density function for a Weibull
+with scale parameter a function of the scalar k. — f.Weibull • survDeconvolution</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -35,15 +33,11 @@ random variable. — S.Y.Exponential • survDeconvolution</title>
 
 
 
-<meta property="og:title" content="Marginal survival function for exponential
-(possibly conditionally exponential)
-(possibly conditionally exponential)
-random variable. — S.Y.Exponential" />
+<meta property="og:title" content="Marginal density function for a Weibull
+with scale parameter a function of the scalar k. — f.Weibull" />
 
-<meta property="og:description" content="Marginal survival function for exponential
-(possibly conditionally exponential)
-(possibly conditionally exponential)
-random variable." />
+<meta property="og:description" content="Marginal density function for a Weibull
+with scale parameter a function of the scalar k." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -107,59 +101,53 @@ random variable." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Marginal survival function for exponential
-(possibly conditionally exponential)
-(possibly conditionally exponential)
-random variable.</h1>
+    <h1>Marginal density function for a Weibull
+with scale parameter a function of the scalar k.</h1>
     
-    <div class="hidden name"><code>S.Y.Exponential.Rd</code></div>
+    <div class="hidden name"><code>f.Weibull.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Marginal survival function for exponential
-(possibly conditionally exponential)
-(possibly conditionally exponential)
-random variable.</p>
+    <p>Marginal density function for a Weibull
+with scale parameter a function of the scalar k.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>S.Y.Exponential</span>(<span class='no'>t</span>, <span class='no'>a</span>, <span class='no'>b</span>, <span class='no'>parameters</span>, <span class='no'>correlated</span>)</pre>
+    <pre class="usage"><span class='fu'>f.Weibull</span>(<span class='no'>x</span>, <span class='no'>k</span>, <span class='no'>parameters</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>t</th>
-      <td><p>A number or vector, the survival times</p></td>
+      <th>x</th>
+      <td><p>A vector</p></td>
     </tr>
     <tr>
-      <th>a</th>
-      <td><p>A number, the shape parameter of Gamma frailty distribution</p></td>
-    </tr>
-    <tr>
-      <th>b</th>
-      <td><p>A number, the rate parameter of Gamma frailty distribution</p></td>
+      <th>k</th>
+      <td><p>The scalar that influences the scale
+parameter for the Weibull. Consider a Weibull
+with rate parameter p and .
+If the distribution is re-parameterized such that
+the rate parameter is   k^p,
+then k proportionally scales the hazard function
+for the distribution.</p></td>
     </tr>
     <tr>
       <th>parameters</th>
-      <td><p>A list, with an element named lambda, the rate
-parameter of the exponential distribution</p></td>
-    </tr>
-    <tr>
-      <th>correlated</th>
-      <td><p>If TRUE, random variable is conditionally exponential
-on the frailty parameter, that has Gamma(shape=a, rate=b) distribution.</p></td>
+      <td><p>A list of the two parameters
+of the Weibull distribution p and 
+before the re-parameterization described for k.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Survival function evaluated at t</p>
+    <p>The density function evaluated at x</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>S.Y.Exponential</span>(<span class='kw'>t</span><span class='kw'>=</span><span class='fl'>0</span>, <span class='kw'>a</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>b</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>parameters</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>lambda</span><span class='kw'>=</span><span class='fl'>1</span>), <span class='kw'>correlated</span><span class='kw'>=</span><span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] 1</div><div class='input'><span class='fu'>S.Y.Exponential</span>(<span class='kw'>t</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>), <span class='kw'>a</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>b</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>parameters</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>lambda</span><span class='kw'>=</span><span class='fl'>1</span>), <span class='kw'>correlated</span><span class='kw'>=</span><span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] 0.36787944 0.13533528 0.04978707</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>f.Weibull</span>(<span class='kw'>x</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0.5</span>, <span class='fl'>1</span>, <span class='fl'>5</span>), <span class='kw'>k</span><span class='kw'>=</span><span class='fl'>0.5</span>, <span class='kw'>parameters</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>p</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>lambda</span><span class='kw'>=</span><span class='fl'>0.5</span>))</div><div class='output co'>#&gt; [1] 0.2500000 0.2206242 0.1947002 0.0716262</div><div class='input'><span class='fu'>f.Weibull</span>(<span class='kw'>x</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0.5</span>, <span class='fl'>1</span>, <span class='fl'>5</span>), <span class='kw'>k</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>parameters</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>p</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>lambda</span><span class='kw'>=</span><span class='fl'>0.5</span>))</div><div class='output co'>#&gt; [1] 0.5000000 0.3894004 0.3032653 0.0410425</div><div class='input'><span class='fu'>f.Weibull</span>(<span class='kw'>x</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0.5</span>, <span class='fl'>1</span>, <span class='fl'>5</span>), <span class='kw'>k</span><span class='kw'>=</span><span class='fl'>4</span>, <span class='kw'>parameters</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>p</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>lambda</span><span class='kw'>=</span><span class='fl'>0.5</span>))</div><div class='output co'>#&gt; [1] 2.000000e+00 7.357589e-01 2.706706e-01 9.079986e-05</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

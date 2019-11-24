@@ -1,3 +1,5 @@
+[![Travis build status](https://travis-ci.org/mbannick/survDeconvolution.svg?branch=master)](https://travis-ci.org/mbannick/survDeconvolution)
+
 # survDeconvolution
 ## Overview
 Deconvolution Methods for Survival Data

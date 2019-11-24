@@ -6,7 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • survDeconvolution</title>
+<title>Marginal survival function for the sum
+of two exponential, potentially correlated random variables. — S.Z.Exponential • survDeconvolution</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,7 +33,14 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Marginal survival function for the sum
+of two exponential, potentially correlated random variables. — S.Z.Exponential" />
+
+<meta property="og:description" content="\(X\) and \(Y\).
+If correlated, then the distributions are
+correlated through a shared frailty term, k,
+where \(k \sim Gamma(a, b)\)." />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -50,7 +58,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -93,59 +101,76 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Marginal survival function for the sum
+of two exponential, potentially correlated random variables.</h1>
+    
+    <div class="hidden name"><code>S.Z.Exponential.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>\(X\) and \(Y\).
+If <code>correlated</code>, then the distributions are
+correlated through a shared frailty term, <code>k</code>,
+where \(k \sim Gamma(a, b)\).</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
-
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="S.Y.Exponential.html">S.Y.Exponential()</a></code> </p>
-        </td>
-        <td><p>Marginal survival function for exponential
-(possibly conditionally exponential)
-(possibly conditionally exponential)
-random variable.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="S.Z.Exponential.html">S.Z.Exponential()</a></code> </p>
-        </td>
-        <td><p>Marginal survival function for the sum
-of two exponential, potentially correlated random variables.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="f.Weibull.html">f.Weibull()</a></code> </p>
-        </td>
-        <td><p>Marginal density function for a Weibull
-with scale parameter a function of the scalar k.</p></td>
-      </tr>
-    </tbody>
+    <pre class="usage"><span class='fu'>S.Z.Exponential</span>(<span class='no'>t</span>, <span class='no'>a</span>, <span class='no'>b</span>, <span class='no'>parameters_x</span>, <span class='no'>parameters_y</span>, <span class='no'>correlated</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>t</th>
+      <td><p>A number or vector, the survival times</p></td>
+    </tr>
+    <tr>
+      <th>a</th>
+      <td><p>A number, the shape parameter of Gamma frailty distribution</p></td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td><p>A number, the rate parameter of Gamma frailty distribution</p></td>
+    </tr>
+    <tr>
+      <th>parameters_x</th>
+      <td><p>A list, with an element named lambda, the rate
+parameter of the exponential distribution</p></td>
+    </tr>
+    <tr>
+      <th>parameters_y</th>
+      <td><p>A list, with an element named lambda, the rate
+parameter of the exponential distribution</p></td>
+    </tr>
+    <tr>
+      <th>correlated</th>
+      <td><p>If TRUE, random variables that make up the sum
+are each conditionally exponential on the frailty parameter,
+that has Gamma(shape=a, rate=b) distribution.</p></td>
+    </tr>
     </table>
-  </div>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>Survival function evaluated at t</p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>S.Z.Exponential</span>(<span class='kw'>t</span><span class='kw'>=</span><span class='fl'>2</span>, <span class='kw'>a</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>b</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>parameters_x</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>lambda</span><span class='kw'>=</span><span class='fl'>1</span>), <span class='kw'>parameters_y</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>lambda</span><span class='kw'>=</span><span class='fl'>2</span>), <span class='kw'>correlated</span><span class='kw'>=</span><span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] 0.4666667</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
     </ul>
+
   </div>
 </div>
 

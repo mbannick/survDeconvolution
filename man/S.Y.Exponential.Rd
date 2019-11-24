@@ -4,6 +4,7 @@
 \alias{S.Y.Exponential}
 \title{Marginal survival function for exponential
 (possibly conditionally exponential)
+(possibly conditionally exponential)
 random variable.}
 \usage{
 S.Y.Exponential(t, a, b, parameters, correlated)
@@ -26,6 +27,7 @@ Survival function evaluated at t
 }
 \description{
 Marginal survival function for exponential
+(possibly conditionally exponential)
 (possibly conditionally exponential)
 random variable.
 }
