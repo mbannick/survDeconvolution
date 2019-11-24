@@ -81,18 +81,21 @@ S.Z.Exponential <- function(
 #' Marginal density function for a Weibull
 #' with scale parameter a function of the scalar k.
 #' 
-#' @export 
-#' @param x A vector
-#' @param k The scalar that influences the scale
-#' parameter for the Weibull. Consider a Weibull
+#' Consider a Weibull
 #' with rate parameter \eqn{p} and \eqn{\lambda}.
 #' If the distribution is re-parameterized such that
 #' the rate parameter is \eqn{\lambda \cdot k^{p}},
 #' then \eqn{k} proportionally scales the hazard function
 #' for the distribution.
+#' 
+#' @export 
+#' @param x A vector
+#' @param k The scalar that influences the scale
+#' parameter for the Weibull. 
+#' 
 #' @param parameters A list of the two parameters
-#' of the Weibull distribution \eqn{p} and \eqn{\lambda}
-#' before the re-parameterization described for \eqn{k}.
+#' of the Weibull distribution p and lambda
+#' before the re-parameterization described for k.
 #' @return The density function evaluated at x
 #' @examples
 #' f.Weibull(x=c(0, 0.5, 1, 5), k=0.5, parameters=list(p=1, lambda=0.5))
