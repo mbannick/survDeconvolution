@@ -19,8 +19,8 @@ then \eqn{k} proportionally scales the hazard function
 for the distribution.}
 
 \item{parameters}{A list of the two parameters
-of the Weibull distribution \eqn{p} and \eqn{\lambda}
-before the re-parameterization described for \eqn{k}.}
+of the Weibull distribution p and lambda
+before the re-parameterization described for k.}
 }
 \value{
 The density function evaluated at x
