@@ -3,9 +3,7 @@
 \name{S.Y.Exponential}
 \alias{S.Y.Exponential}
 \title{Marginal survival function for exponential
-(possibly conditionally exponential)
-(possibly conditionally exponential)
-random variable.}
+random variable \eqn{Y}, with frailty parameter \eqn{K}.}
 \usage{
 S.Y.Exponential(t, a, b, parameters, correlated)
 }
@@ -20,18 +18,12 @@ S.Y.Exponential(t, a, b, parameters, correlated)
 parameter of the exponential distribution}
 
 \item{correlated}{If TRUE, random variable is conditionally exponential
-on the frailty parameter, that has Gamma(shape=a, rate=b) distribution.}
+on the frailty parameter, that has \code{Gamma(shape=a, rate=b)} distribution.}
 }
 \value{
 Survival function evaluated at t
 }
 \description{
-Marginal survival function for exponential
-(possibly conditionally exponential)
-(possibly conditionally exponential)
-random variable.
-}
-\examples{
-S.Y.Exponential(t=0, a=1, b=1, parameters=list(lambda=1), correlated=FALSE)
-S.Y.Exponential(t=c(1, 2, 3), a=1, b=1, parameters=list(lambda=1), correlated=FALSE)
+If \code{!correlated}: \eqn{Y ~ Exponential(\lambda)}
+If \code{correlated}: \eqn{Y ~ Exponential(\lambda \cdot k) \quad K ~ Gamma(a, b)}
 }

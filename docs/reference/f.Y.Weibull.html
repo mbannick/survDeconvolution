@@ -6,8 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Marginal survival function for exponential
-random variable \(Y\), with frailty parameter \(K\). — S.Y.Exponential • survDeconvolution</title>
+<title>Marginal density function for conditional Weibull random variable \(Y|K\)
+marginalized over \(K\). — f.Y.Weibull • survDeconvolution</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -33,11 +33,11 @@ random variable \(Y\), with frailty parameter \(K\). — S.Y.Exponential • sur
 
 
 
-<meta property="og:title" content="Marginal survival function for exponential
-random variable \(Y\), with frailty parameter \(K\). — S.Y.Exponential" />
+<meta property="og:title" content="Marginal density function for conditional Weibull random variable \(Y|K\)
+marginalized over \(K\). — f.Y.Weibull" />
 
-<meta property="og:description" content="If !correlated: \(Y ~ Exponential(\lambda)\)
-If correlated: \(Y ~ Exponential(\lambda \cdot k) \quad K ~ Gamma(a, b)\)" />
+<meta property="og:description" content="If !correlated: \(Y \sim Weibull(shape=p, rate=\lambda)\) 
+If correlated: \(Y \sim Weibull(shape=p, rate=\lambda \cdot k^{p}) \quad K \sim Gamma(a, b)\)" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -101,51 +101,51 @@ If correlated: \(Y ~ Exponential(\lambda \cdot k) \quad K ~ Gamma(a, b)\)" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Marginal survival function for exponential
-random variable \(Y\), with frailty parameter \(K\).</h1>
+    <h1>Marginal density function for conditional Weibull random variable \(Y|K\)
+marginalized over \(K\).</h1>
     
-    <div class="hidden name"><code>S.Y.Exponential.Rd</code></div>
+    <div class="hidden name"><code>f.Y.Weibull.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>If <code>!correlated</code>: \(Y ~ Exponential(\lambda)\)
-If <code>correlated</code>: \(Y ~ Exponential(\lambda \cdot k) \quad K ~ Gamma(a, b)\)</p>
+    <p>If <code>!correlated</code>: \(Y \sim Weibull(shape=p, rate=\lambda)\) <br />
+If <code>correlated</code>: \(Y \sim Weibull(shape=p, rate=\lambda \cdot k^{p}) \quad K \sim Gamma(a, b)\)</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>S.Y.Exponential</span>(<span class='no'>t</span>, <span class='no'>a</span>, <span class='no'>b</span>, <span class='no'>parameters</span>, <span class='no'>correlated</span>)</pre>
+    <pre class="usage"><span class='fu'>f.Y.Weibull</span>(<span class='no'>y</span>, <span class='no'>parameters</span>, <span class='no'>gamma_shape</span>, <span class='no'>gamma_rate</span>, <span class='no'>correlated</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>t</th>
-      <td><p>A number or vector, the survival times</p></td>
-    </tr>
-    <tr>
-      <th>a</th>
-      <td><p>A number, the shape parameter of Gamma frailty distribution</p></td>
-    </tr>
-    <tr>
-      <th>b</th>
-      <td><p>A number, the rate parameter of Gamma frailty distribution</p></td>
+      <th>y</th>
+      <td><p>A vector at which to evaluate the density function</p></td>
     </tr>
     <tr>
       <th>parameters</th>
-      <td><p>A list, with an element named lambda, the rate
-parameter of the exponential distribution</p></td>
+      <td><p>A list of the two parameters
+of the Weibull distribution p and lambda
+before the re-parameterization described for <code>k</code> in <code>f.Weibull</code>.</p></td>
+    </tr>
+    <tr>
+      <th>gamma_shape</th>
+      <td><p>The shape parameter for gamma distribution
+where in <code>f.Weibull</code>, \(k ~ Gamma(gamma_shape, gamma_rate)\).</p></td>
+    </tr>
+    <tr>
+      <th>gamma_rate</th>
+      <td><p>The shape parameter for gamma distribution
+where in <code>f.Weibull</code>, \(k ~ Gamma(gamma_shape, gamma_rate)\).</p></td>
     </tr>
     <tr>
       <th>correlated</th>
-      <td><p>If TRUE, random variable is conditionally exponential
-on the frailty parameter, that has <code><a href='https://rdrr.io/r/stats/family.html'>Gamma(shape=a, rate=b)</a></code> distribution.</p></td>
+      <td><p>If <code>FALSE</code>, then this is just a regular Weibull
+density that you could get with <code>dweibull</code>. If <code>TRUE</code>, then include
+the frailty parameterization marginalizing over <code>k</code> in <code>f.Weibull</code>.</p></td>
     </tr>
     </table>
-    
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>Survival function evaluated at t</p>
     
 
   </div>
@@ -153,9 +153,7 @@ on the frailty parameter, that has <code><a href='https://rdrr.io/r/stats/family
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-          </ul>
+                </ul>
 
   </div>
 </div>

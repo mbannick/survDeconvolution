@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Marginal survival function for the sum
-of two exponential, potentially correlated random variables. — S.Z.Exponential • survDeconvolution</title>
+of two exponential random variables, \(Z=X+Y\), with shared frailty parameter \(K\). — S.Z.Exponential • survDeconvolution</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -34,12 +34,10 @@ of two exponential, potentially correlated random variables. — S.Z.Exponential
 
 
 <meta property="og:title" content="Marginal survival function for the sum
-of two exponential, potentially correlated random variables. — S.Z.Exponential" />
+of two exponential random variables, \(Z=X+Y\), with shared frailty parameter \(K\). — S.Z.Exponential" />
 
-<meta property="og:description" content="\(X\) and \(Y\).
-If correlated, then the distributions are
-correlated through a shared frailty term, k,
-where \(k \sim Gamma(a, b)\)." />
+<meta property="og:description" content="If !correlated: \(X \sim Exponential(\lambda_{x}) \quad Y \sim Exponential(\lambda_{y})\) 
+If correlated: \(X \sim Exponential(\lambda_{x} \cdot k) \quad Y \sim Exponential(\lambda_{y} \cdot k) \quad K \sim Gamma(a, b)\)" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -104,17 +102,15 @@ where \(k \sim Gamma(a, b)\)." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Marginal survival function for the sum
-of two exponential, potentially correlated random variables.</h1>
+of two exponential random variables, \(Z=X+Y\), with shared frailty parameter \(K\).</h1>
     
     <div class="hidden name"><code>S.Z.Exponential.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>\(X\) and \(Y\).
-If <code>correlated</code>, then the distributions are
-correlated through a shared frailty term, <code>k</code>,
-where \(k \sim Gamma(a, b)\).</p>
+    <p>If <code>!correlated</code>: \(X \sim Exponential(\lambda_{x}) \quad Y \sim Exponential(\lambda_{y})\) <br />
+If <code>correlated</code>: \(X \sim Exponential(\lambda_{x} \cdot k) \quad Y \sim Exponential(\lambda_{y} \cdot k) \quad K \sim Gamma(a, b)\)</p>
     
     </div>
 
@@ -137,12 +133,12 @@ where \(k \sim Gamma(a, b)\).</p>
     </tr>
     <tr>
       <th>parameters_x</th>
-      <td><p>A list, with an element named lambda, the rate
+      <td><p>A list, with an element named <code>lambda</code> (\(\lambda_x\)), the rate
 parameter of the exponential distribution</p></td>
     </tr>
     <tr>
       <th>parameters_y</th>
-      <td><p>A list, with an element named lambda, the rate
+      <td><p>A list, with an element <code>lambda</code> (\(\lambda_y\)), the rate
 parameter of the exponential distribution</p></td>
     </tr>
     <tr>
@@ -158,9 +154,6 @@ that has Gamma(shape=a, rate=b) distribution.</p></td>
     <p>Survival function evaluated at t</p>
     
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>S.Z.Exponential</span>(<span class='kw'>t</span><span class='kw'>=</span><span class='fl'>2</span>, <span class='kw'>a</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>b</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>parameters_x</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>lambda</span><span class='kw'>=</span><span class='fl'>1</span>),
-<span class='kw'>parameters_y</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>lambda</span><span class='kw'>=</span><span class='fl'>2</span>), <span class='kw'>correlated</span><span class='kw'>=</span><span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] 0.4666667</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -168,9 +161,7 @@ that has Gamma(shape=a, rate=b) distribution.</p></td>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+          </ul>
 
   </div>
 </div>

@@ -3,7 +3,7 @@
 \name{S.Z.Exponential}
 \alias{S.Z.Exponential}
 \title{Marginal survival function for the sum
-of two exponential, potentially correlated random variables.}
+of two exponential random variables, \eqn{Z=X+Y}, with shared frailty parameter \eqn{K}.}
 \usage{
 S.Z.Exponential(t, a, b, parameters_x, parameters_y, correlated)
 }
@@ -14,10 +14,10 @@ S.Z.Exponential(t, a, b, parameters_x, parameters_y, correlated)
 
 \item{b}{A number, the rate parameter of Gamma frailty distribution}
 
-\item{parameters_x}{A list, with an element named lambda, the rate
+\item{parameters_x}{A list, with an element named \code{lambda} (\eqn{\lambda_x}), the rate
 parameter of the exponential distribution}
 
-\item{parameters_y}{A list, with an element named lambda, the rate
+\item{parameters_y}{A list, with an element \code{lambda} (\eqn{\lambda_y}), the rate
 parameter of the exponential distribution}
 
 \item{correlated}{If TRUE, random variables that make up the sum
@@ -28,12 +28,6 @@ that has Gamma(shape=a, rate=b) distribution.}
 Survival function evaluated at t
 }
 \description{
-\eqn{X} and \eqn{Y}.
-If \code{correlated}, then the distributions are
-correlated through a shared frailty term, \code{k},
-where \eqn{k \sim Gamma(a, b)}.
-}
-\examples{
-S.Z.Exponential(t=2, a=1, b=1, parameters_x=list(lambda=1),
-parameters_y=list(lambda=2), correlated=TRUE)
+If \code{!correlated}: \eqn{X \sim Exponential(\lambda_{x}) \quad Y \sim Exponential(\lambda_{y})} \cr
+If \code{correlated}: \eqn{X \sim Exponential(\lambda_{x} \cdot k) \quad Y \sim Exponential(\lambda_{y} \cdot k) \quad K \sim Gamma(a, b)}
 }

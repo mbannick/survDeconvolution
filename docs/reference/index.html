@@ -119,23 +119,63 @@
           <p><code><a href="S.Y.Exponential.html">S.Y.Exponential()</a></code> </p>
         </td>
         <td><p>Marginal survival function for exponential
-(possibly conditionally exponential)
-(possibly conditionally exponential)
-random variable.</p></td>
+random variable \(Y\), with frailty parameter \(K\).</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="S.Y.Weibull.html">S.Y.Weibull()</a></code> </p>
+        </td>
+        <td><p>Survival function for conditionally Weibull random variable \(Y|K\)
+marginalized over \(K\).</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="S.Z.Exponential.html">S.Z.Exponential()</a></code> </p>
         </td>
         <td><p>Marginal survival function for the sum
-of two exponential, potentially correlated random variables.</p></td>
+of two exponential random variables, \(Z=X+Y\), with shared frailty parameter \(K\).</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="S.Z.Weibull.html">S.Z.Weibull()</a></code> </p>
+        </td>
+        <td><p>Survival function for the sum of two conditionally Weibull random variables
+with a shared frailty term.</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="f.Weibull.html">f.Weibull()</a></code> </p>
         </td>
-        <td><p>Marginal density function for a Weibull
-with scale parameter a function of the scalar k.</p></td>
+        <td><p>Conditional density function for Weibull random variable \(X\) with
+scalar multiplying the hazard \(k\).</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="f.Y.Weibull.html">f.Y.Weibull()</a></code> </p>
+        </td>
+        <td><p>Marginal density function for conditional Weibull random variable \(Y|K\)
+marginalized over \(K\).</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="f.YZ.Weibull.html">f.YZ.Weibull()</a></code> </p>
+        </td>
+        <td><p>Joint density function for two conditionally Weibull
+random variables, marginalized over the frailty term.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="f.YZK.Weibull.html">f.YZK.Weibull()</a></code> </p>
+        </td>
+        <td><p>Joint density function for two conditionally Weibull
+random variables with shared frailty \(k\).</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="f.Z.Weibull.html">f.Z.Weibull()</a></code> </p>
+        </td>
+        <td><p>Density function for the sum of two conditionally Weibull random variables
+with a shared frailty term.</p></td>
       </tr>
     </tbody>
     </table>

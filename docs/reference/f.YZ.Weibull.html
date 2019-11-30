@@ -6,8 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Marginal survival function for exponential
-random variable \(Y\), with frailty parameter \(K\). — S.Y.Exponential • survDeconvolution</title>
+<title>Joint density function for two conditionally Weibull
+random variables, marginalized over the frailty term. — f.YZ.Weibull • survDeconvolution</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -33,11 +33,14 @@ random variable \(Y\), with frailty parameter \(K\). — S.Y.Exponential • sur
 
 
 
-<meta property="og:title" content="Marginal survival function for exponential
-random variable \(Y\), with frailty parameter \(K\). — S.Y.Exponential" />
+<meta property="og:title" content="Joint density function for two conditionally Weibull
+random variables, marginalized over the frailty term. — f.YZ.Weibull" />
 
-<meta property="og:description" content="If !correlated: \(Y ~ Exponential(\lambda)\)
-If correlated: \(Y ~ Exponential(\lambda \cdot k) \quad K ~ Gamma(a, b)\)" />
+<meta property="og:description" content="If correlated, the function computes the marginal joint density
+of Y and Z by marginalizing over the support of K. For computational efficiency,
+it integrates from epsilon to int.upper, where epsilon can be 0
+and int.upper can be Inf. Small deviations from 0 and Inf will
+approximate the true integral." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -101,51 +104,81 @@ If correlated: \(Y ~ Exponential(\lambda \cdot k) \quad K ~ Gamma(a, b)\)" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Marginal survival function for exponential
-random variable \(Y\), with frailty parameter \(K\).</h1>
+    <h1>Joint density function for two conditionally Weibull
+random variables, marginalized over the frailty term.</h1>
     
-    <div class="hidden name"><code>S.Y.Exponential.Rd</code></div>
+    <div class="hidden name"><code>f.YZ.Weibull.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>If <code>!correlated</code>: \(Y ~ Exponential(\lambda)\)
-If <code>correlated</code>: \(Y ~ Exponential(\lambda \cdot k) \quad K ~ Gamma(a, b)\)</p>
+    <p>If <code>correlated</code>, the function computes the marginal joint density
+of Y and Z by marginalizing over the support of K. For computational efficiency,
+it integrates from <code>epsilon</code> to <code>int.upper</code>, where <code>epsilon</code> can be 0
+and <code>int.upper</code> can be <code>Inf</code>. Small deviations from 0 and <code>Inf</code> will
+approximate the true integral.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>S.Y.Exponential</span>(<span class='no'>t</span>, <span class='no'>a</span>, <span class='no'>b</span>, <span class='no'>parameters</span>, <span class='no'>correlated</span>)</pre>
+    <pre class="usage"><span class='fu'>f.YZ.Weibull</span>(<span class='no'>y</span>, <span class='no'>z</span>, <span class='no'>parameters_x</span>, <span class='no'>parameters_y</span>, <span class='no'>gamma_shape</span>, <span class='no'>gamma_rate</span>,
+  <span class='no'>epsilon</span>, <span class='no'>control_list</span>, <span class='no'>int.upper</span>, <span class='kw'>correlated</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>t</th>
-      <td><p>A number or vector, the survival times</p></td>
+      <th>y</th>
+      <td><p>A number at which to evaluate the density \(Y = y\)</p></td>
     </tr>
     <tr>
-      <th>a</th>
+      <th>z</th>
+      <td><p>A number at which to evaluate the density \(X = z-y\)</p></td>
+    </tr>
+    <tr>
+      <th>parameters_x</th>
+      <td><p>A list, with an element named <code>lambda</code> (\(\lambda_x\)), and an element named <code>p</code> (\(p_x\)).</p></td>
+    </tr>
+    <tr>
+      <th>parameters_y</th>
+      <td><p>A list, with an element <code>lambda</code> (\(\lambda_y\)), and an element named <code>p</code> (\(p_y\)).</p></td>
+    </tr>
+    <tr>
+      <th>gamma_shape</th>
       <td><p>A number, the shape parameter of Gamma frailty distribution</p></td>
     </tr>
     <tr>
-      <th>b</th>
+      <th>gamma_rate</th>
       <td><p>A number, the rate parameter of Gamma frailty distribution</p></td>
     </tr>
     <tr>
-      <th>parameters</th>
-      <td><p>A list, with an element named lambda, the rate
-parameter of the exponential distribution</p></td>
+      <th>epsilon</th>
+      <td><p>A float, the lower bound for support of K</p></td>
+    </tr>
+    <tr>
+      <th>control_list</th>
+      <td><p>A list, with an element named <code>rel.tol</code> to be passed to `distrExIntegrate` as the <code>rel.tol</code> argument (see <code>?distrExIntegrate</code>)</p></td>
+    </tr>
+    <tr>
+      <th>int.upper</th>
+      <td><p>A float, the upper bound for support of K</p></td>
     </tr>
     <tr>
       <th>correlated</th>
-      <td><p>If TRUE, random variable is conditionally exponential
-on the frailty parameter, that has <code><a href='https://rdrr.io/r/stats/family.html'>Gamma(shape=a, rate=b)</a></code> distribution.</p></td>
+      <td><p>If <code>FALSE</code>, then \(X\) and \(Y\) are independent. If <code>TRUE</code>, then
+there is a shared frailty term \(K\) that induces correlation between \(X\) and \(Y\).</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Survival function evaluated at t</p>
+    <p>joint density function evaluated at <code>Y=y, and X=z-y</code>.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>\(X \sim Weibull(shape=p_{x}, rate=\lambda_{x} \cdot k^{p_{x}})\) <br />
+\(Y \sim Weibull(shape=p_{y}, rate=\lambda_{y} \cdot k^{p_{y}})\) <br />
+\(Z := X + Y \implies X = Z - Y\) <br />
+\(K \sim Gamma(shape=gamma_shape, rate=gamma_rate)\)</p>
     
 
   </div>
@@ -155,6 +188,8 @@ on the frailty parameter, that has <code><a href='https://rdrr.io/r/stats/family
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
           </ul>
 
   </div>

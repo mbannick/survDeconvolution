@@ -2,8 +2,8 @@
 % Please edit documentation in R/survival_funcs.R
 \name{f.Weibull}
 \alias{f.Weibull}
-\title{Marginal density function for a Weibull
-with scale parameter a function of the scalar k.}
+\title{Conditional density function for Weibull random variable \eqn{X} with
+scalar multiplying the hazard \eqn{k}.}
 \usage{
 f.Weibull(x, k, parameters)
 }
@@ -26,11 +26,5 @@ before the re-parameterization described for k.}
 The density function evaluated at x
 }
 \description{
-Marginal density function for a Weibull
-with scale parameter a function of the scalar k.
-}
-\examples{
-f.Weibull(x=c(0, 0.5, 1, 5), k=0.5, parameters=list(p=1, lambda=0.5))
-f.Weibull(x=c(0, 0.5, 1, 5), k=1, parameters=list(p=1, lambda=0.5))
-f.Weibull(x=c(0, 0.5, 1, 5), k=4, parameters=list(p=1, lambda=0.5))
+\eqn{X ~ Weibull(shape=p, rate=\lambda \cdot k^{p})}
 }
