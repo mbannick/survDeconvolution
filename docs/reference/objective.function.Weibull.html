@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • survDeconvolution</title>
+<title>Objective function for the Weibull deconvolution — objective.function.Weibull • survDeconvolution</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,7 +32,13 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Objective function for the Weibull deconvolution — objective.function.Weibull" />
+
+<meta property="og:description" content="Returns the objective function evaluated with the current parameters and observed data.
+Used to perform non-linear least squares. This objective function
+is specific to Weibull deconvolution, so it requires 5 parameters
+(two for each Weibull and one for the frailty)." />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -50,7 +56,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -93,111 +99,87 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Objective function for the Weibull deconvolution</h1>
+    
+    <div class="hidden name"><code>objective.function.Weibull.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>Returns the objective function evaluated with the current parameters and observed data.
+Used to perform non-linear least squares. This objective function
+is specific to Weibull deconvolution, so it requires 5 parameters
+(two for each Weibull and one for the frailty).</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
-
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="S.Y.Exponential.html">S.Y.Exponential()</a></code> </p>
-        </td>
-        <td><p>Marginal survival function for exponential
-random variable \(Y\), with frailty parameter \(K\).</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="S.Y.Weibull.html">S.Y.Weibull()</a></code> </p>
-        </td>
-        <td><p>Survival function for conditionally Weibull random variable \(Y|K\)
-marginalized over \(K\).</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="S.Z.Exponential.html">S.Z.Exponential()</a></code> </p>
-        </td>
-        <td><p>Marginal survival function for the sum
-of two exponential random variables, \(Z=X+Y\), with shared frailty parameter \(K\).</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="S.Z.Weibull.html">S.Z.Weibull()</a></code> </p>
-        </td>
-        <td><p>Survival function for the sum of two conditionally Weibull random variables
-with a shared frailty term.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="f.Weibull.html">f.Weibull()</a></code> </p>
-        </td>
-        <td><p>Conditional density function for Weibull random variable \(X\) with
-scalar multiplying the hazard \(k\).</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="f.Y.Weibull.html">f.Y.Weibull()</a></code> </p>
-        </td>
-        <td><p>Marginal density function for conditional Weibull random variable \(Y|K\)
-marginalized over \(K\).</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="f.YZ.Weibull.html">f.YZ.Weibull()</a></code> </p>
-        </td>
-        <td><p>Joint density function for two conditionally Weibull
-random variables, marginalized over the frailty term.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="f.YZK.Weibull.html">f.YZK.Weibull()</a></code> </p>
-        </td>
-        <td><p>Joint density function for two conditionally Weibull
-random variables with shared frailty \(k\).</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="f.Z.Weibull.html">f.Z.Weibull()</a></code> </p>
-        </td>
-        <td><p>Density function for the sum of two conditionally Weibull random variables
-with a shared frailty term.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="objective.function.Exponential.html">objective.function.Exponential()</a></code> </p>
-        </td>
-        <td><p>Objective function for the Exponential deconvolution</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="objective.function.Weibull.html">objective.function.Weibull()</a></code> </p>
-        </td>
-        <td><p>Objective function for the Weibull deconvolution</p></td>
-      </tr>
-    </tbody>
+    <pre class="usage"><span class='fu'>objective.function.Weibull</span>(<span class='no'>params</span>, <span class='no'>y</span>, <span class='no'>t_y</span>, <span class='no'>z</span>, <span class='no'>t_z</span>, <span class='no'>control_list</span>,
+  <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>epsilon</span> <span class='kw'>=</span> <span class='no'>epsilon</span>, <span class='kw'>correlated</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>int.upper</span> <span class='kw'>=</span> <span class='fl'>Inf</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>params</th>
+      <td><p>A list of parameters in the order <code>lambda, p, mu, q, beta</code></p></td>
+    </tr>
+    <tr>
+      <th>y</th>
+      <td><p>A vector of observations representing survival at <code>t_y</code></p></td>
+    </tr>
+    <tr>
+      <th>t_y</th>
+      <td><p>A vector of times at which survival is observed for <code>y</code></p></td>
+    </tr>
+    <tr>
+      <th>z</th>
+      <td><p>A vector of observations representing survival at <code>t_z</code></p></td>
+    </tr>
+    <tr>
+      <th>t_z</th>
+      <td><p>A vector of times at which survival is observed for <code>z</code></p></td>
+    </tr>
+    <tr>
+      <th>control_list</th>
+      <td><p>A named list of options to be passed to <code>distrExIntegrate</code>,
+called <code>subdivisions</code> and <code>rel.tol</code>.</p></td>
+    </tr>
+    <tr>
+      <th>alpha</th>
+      <td><p>A number, usually fixed to 1, that is the shape parameter of the frailty distribution</p></td>
+    </tr>
+    <tr>
+      <th>epsilon</th>
+      <td><p>The smallest value from which to integrate, passed to integration functions, for approximations</p></td>
+    </tr>
+    <tr>
+      <th>correlated</th>
+      <td><p>If <code>TRUE</code>, then <code>y</code> and <code>x = z - y</code> are correlated through a shared
+frailty term with rate parameter <code>beta</code>. If <code>FALSE</code>, then they are independent and the function
+ignores <code>beta</code>.</p></td>
+    </tr>
+    <tr>
+      <th>int.upper</th>
+      <td><p>The largest value from which to integrate (in place of <code>Inf</code>) for approximations</p></td>
+    </tr>
     </table>
-  </div>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>A float, the objective function evaluated at the current parameters</p>
+    
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
-    </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+          </ul>
+
   </div>
 </div>
 
