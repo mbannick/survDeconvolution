@@ -28,6 +28,6 @@ joint density function evaluated at \code{K=k, Y=y, and X=z-y}.
 \description{
 \eqn{X \sim Weibull(shape=p_{x}, rate=\lambda_{x} \cdot k^{p_{x}})} \cr
 \eqn{Y \sim Weibull(shape=p_{y}, rate=\lambda_{y} \cdot k^{p_{y}})} \cr
-\eqn{Z := X + Y \implies X = Z - Y} \cr
+\eqn{Z := X + Y \to X = Z - Y} \cr
 \eqn{K \sim Gamma(shape=gamma_shape, rate=gamma_rate)}
 }
