@@ -25,30 +25,30 @@ test_that("density for conditional Weibull", {
                     gamma_shape=1, gamma_rate=1, correlated=TRUE)
   f2 <- f.Y.Weibull(y=c(0, 1), parameters=list(lambda=1, p=1),
                     gamma_shape=1, gamma_rate=1, correlated=FALSE)
-  expect_equal(f1, c(1.0, 0.25))
-  expect_equal(f2, c(1.0, 0.3678794))
+  expect_equal(f1, c(1.0, 0.25), tolerance=1e-7)
+  expect_equal(f2, c(1.0, 0.3678794), tolerance=1e-7)
 })
 
 test_that("joint Z Y K density Weibull", {
   f <- f.YZK.Weibull(k=c(0, 1, 2, 3), z=1, y=1, parameters_x=list(lambda=1, p=1),
                      parameters_y=list(lambda=0.5, p=1),
                      gamma_shape=1, gamma_rate=1)
-  expect_equal(f, c(0.00000000, 0.11156508, 0.09957414, 0.04999048))
+  expect_equal(f, c(0.00000000, 0.11156508, 0.09957414, 0.04999048), tolerance=1e-7)
 })
 
 test_that("joint Z Y density Weibull", {
   # Integrate to infinity
   f <- f.YZ.Weibull(z=1, y=1, parameters_x=list(lambda=1, p=1), parameters_y=list(lambda=0.5, p=1),
                     gamma_shape=1, gamma_rate=1, epsilon=1e-3, control_list=list(rel.tol=1e-3), int.upper=Inf)
-  expect_equal(f, 0.2962963)
+  expect_equal(f, 0.2962963, tolerance=1e-7)
   # Lower upper bound
   f <- f.YZ.Weibull(z=1, y=1, parameters_x=list(lambda=1, p=1), parameters_y=list(lambda=0.5, p=1),
                     gamma_shape=1, gamma_rate=1, epsilon=1e-3, control_list=list(rel.tol=1e-3), int.upper=5)
-  expect_equal(f, 0.2902943)
+  expect_equal(f, 0.2902943, tolerance=1e-7)
   f <- f.YZ.Weibull(z=1, y=1, parameters_x=list(lambda=1, p=1), parameters_y=list(lambda=0.5, p=1),
                     gamma_shape=1, gamma_rate=1, epsilon=1e-3, control_list=list(rel.tol=1e-3), int.upper=5,
                     correlated=FALSE)
-  expect_equal(f, 0.3032653)
+  expect_equal(f, 0.3032653, tolerance=1e-7)
 })
 
 test_that("Z density Weibull", {
@@ -62,12 +62,12 @@ test_that("Z survival Weibull", {
                    parameters_y=list(lambda=0.5, p=1),
                    a=1, b=1, epsilon=0, control_list=list(rel.tol=1e-3, subdivisions=100),
                    int.upper=Inf, correlated=TRUE)
-  expect_equal(f, c(1.000000e+00, 8.333333e-01, 3.090206e-06))
+  expect_equal(f, c(1.000000e+00, 8.333333e-01, 3.090206e-06), tolerance=1e-7)
   f <- S.Z.Weibull(t=c(0, 1, Inf), parameters_x=list(lambda=1, p=1),
                    parameters_y=list(lambda=0.5, p=1),
                    a=1, b=1, epsilon=1e-4, control_list=list(rel.tol=1e-3, subdivisions=100),
                    int.upper=Inf, correlated=FALSE)
-  expect_equal(f, c(1.000000e+00, 8.452135e-01, 4.999911e-05))
+  expect_equal(f, c(1.000000e+00, 8.452135e-01, 4.999911e-05), tolerance=1e-7)
 })
 
 test_that("Y survival Weibull", {
