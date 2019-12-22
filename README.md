@@ -9,3 +9,18 @@ Deconvolution Methods for Survival Data
 # install.packages("devtools")
 devtools::install_github("mbannick/survDeconvolution")
 ```
+
+## Use
+
+### Deconvolution Model
+
+### Fitting a Deconvolution Model
+
+To fit a deconvolution model, you must have four pieces of information. A vector with
+
+### Simulate Data
+
+```r
+library(survDeconvolution)
+```
+

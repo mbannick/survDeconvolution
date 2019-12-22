@@ -48,7 +48,7 @@ objective.function.Weibull <- function(
     b=parameters$beta,
     epsilon=epsilon,
     correlated=correlated)
-  
+
   z.int.value <- S.Z.Weibull(
     t=t_z,
     parameters_x=list(
