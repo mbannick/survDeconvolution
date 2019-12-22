@@ -12,7 +12,8 @@ Imports:
     MASS,
     distrEx,
     parallel,
-    stats
+    stats,
+    optimx
 Suggests: 
     testthat
 RoxygenNote: 6.1.1

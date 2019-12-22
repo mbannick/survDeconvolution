@@ -14,7 +14,10 @@
 #' @param par.lower A vector of lower bounds for parameters
 #' @param par.upper A vector of upper bounds for parameters
 #' @param epsilon The smallest value from which to integrate
+#' @param parametric_distribution Which parametric distribution to use: 'Weibull' or 'Exponential'
 #' @param int.upper The largest value from which to integrate
+#' @param itnmax A number specifying the maximum number of iterations to \code{optimx}
+#' @param method A string specifying the optimization method to use in \code{optimx}
 #' @param optim.rel.tol Relative tolerance for \code{optimx} optimization
 #' @param control_list A named list of options to be passed to \code{distrExIntegrate},
 #' called \code{subdivisions} and \code{rel.tol}.
