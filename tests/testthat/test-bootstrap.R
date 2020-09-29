@@ -1,6 +1,7 @@
 context("Bootstrap")
 
 test_that("Data simulate", {
+  set.seed(1000)
   df <- data.simulate(
     n=10,
     parameters=list(lambda=1, mu=1, p=1, beta=1, alpha=1, q=1),
